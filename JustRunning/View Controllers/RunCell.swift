@@ -30,6 +30,7 @@ class RunCell: UITableViewCell {
         super.awakeFromNib()
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
+//        mapView.delegate = self
         
     }
     
@@ -54,8 +55,8 @@ class RunCell: UITableViewCell {
             motionManager.deviceMotionUpdateInterval = 0.02
             motionManager.startDeviceMotionUpdates(to: .main, withHandler: { (motion, error) in
                 if let motion = motion {
-                    let pitch = motion.attitude.pitch * 5 // x-axis
-                    let roll = motion.attitude.roll * 5 // y-axis
+                    let pitch = motion.attitude.pitch * 4 // x-axis
+                    let roll = motion.attitude.roll * 4 // y-axis
                     self.applyShadow(width: CGFloat(roll), height: CGFloat(pitch))
                 }
             })
@@ -66,7 +67,7 @@ class RunCell: UITableViewCell {
         if let shadowView = shadowView {
             let shadowPath = UIBezierPath(roundedRect: shadowView.bounds, cornerRadius: 14.0)
             shadowView.layer.masksToBounds = false
-            shadowView.layer.shadowRadius = 8.0
+            shadowView.layer.shadowRadius = 6.0
             shadowView.layer.shadowColor = UIColor.black.cgColor
             shadowView.layer.shadowOffset = CGSize(width: width, height: height)
             shadowView.layer.shadowOpacity = 0.35

@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JustRunning/AppDelegate.swift"
-            timestampString = "532130299.851098"
+            timestampString = "532492492.56329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -42,13 +42,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JustRunning/AppDelegate.swift"
-            timestampString = "532130299.851189"
+            timestampString = "532492492.563395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JustRunning/View Controllers/FeedController.swift"
+            timestampString = "532492492.56347"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "mapRegion(run:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JustRunning/View Controllers/FeedController.swift"
+            timestampString = "532492492.563571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "polyLine(run:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Just_Running.FeedController.(polyLine in _5816B91838BE3E7009135CE2841EEE06)(run: Just_Running.Run) -&gt; Swift.Array&lt;Just_Running.MulticolorPoly&gt;"
+                  moduleName = "Just Running"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ben/Documents/JustRunning/JustRunning/View%20Controllers/FeedController.swift"
+                  timestampString = "532456965.779756"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Just_Running.FeedController.(polyLine in _5816B91838BE3E7009135CE2841EEE06)(run: Just_Running.Run) -&gt; Swift.Array&lt;Just_Running.MulticolorPoly&gt;"
+                  moduleName = "Just Running"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ben/Documents/JustRunning/JustRunning/View%20Controllers/FeedController.swift"
+                  timestampString = "532456965.788029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "7141">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -31,15 +31,8 @@ class ReviewController: UIViewController {
     }
     
     private func configureView() {
-//        let distance = Measurement(value: run.distance, unit: UnitLength.meters)
-//        let seconds = Int(run.duration)
-//        let formattedDistance = FormatDisplay.distance(distance)
-//        let formattedDate = FormatDisplay.date(run.timestamp)
-//        let formattedTime = FormatDisplay.time(seconds)
-//        let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
-//
+
         lblDistance.text = savedDistance
-//        dateLabel.text = formattedDate
         lblTime.text = savedTime
         lblAvgPace.text = savedPace
         

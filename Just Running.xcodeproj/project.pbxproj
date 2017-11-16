@@ -10,7 +10,6 @@
 		B504AEEA1F902272000A593A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504AEE91F902272000A593A /* LocationManager.swift */; };
 		B504AEEC1F902468000A593A /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504AEEB1F902468000A593A /* FormatDisplay.swift */; };
 		B504AEEE1F902494000A593A /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504AEED1F902494000A593A /* UnitExtensions.swift */; };
-		B504AEF01F91429A000A593A /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504AEEF1F91429A000A593A /* ReviewController.swift */; };
 		B504AEF21F91451F000A593A /* MulticolorPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504AEF11F91451F000A593A /* MulticolorPoly.swift */; };
 		B5164BCD1F746AC600A8A8CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5164BCC1F746AC600A8A8CF /* AppDelegate.swift */; };
 		B5164BCF1F746AC600A8A8CF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5164BCE1F746AC600A8A8CF /* HomeController.swift */; };
@@ -47,7 +46,6 @@
 		B504AEE91F902272000A593A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B504AEEB1F902468000A593A /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		B504AEED1F902494000A593A /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
-		B504AEEF1F91429A000A593A /* ReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		B504AEF11F91451F000A593A /* MulticolorPoly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticolorPoly.swift; sourceTree = "<group>"; };
 		B5164BC91F746AC600A8A8CF /* Just Running.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Just Running.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5164BCC1F746AC600A8A8CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				B5164BCE1F746AC600A8A8CF /* HomeController.swift */,
-				B504AEEF1F91429A000A593A /* ReviewController.swift */,
 				B5BCAAAA1FBBC6670058026B /* FeedController.swift */,
 				B5BCAAAC1FBBD3530058026B /* RunCell.swift */,
 			);
@@ -327,7 +324,6 @@
 				B504AEEE1F902494000A593A /* UnitExtensions.swift in Sources */,
 				B5BCAAAB1FBBC6670058026B /* FeedController.swift in Sources */,
 				B59945AA1F90128C003EC773 /* JustRunning.xcdatamodeld in Sources */,
-				B504AEF01F91429A000A593A /* ReviewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

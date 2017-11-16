@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RunCell" customModule="Just_Running" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-ms-xed" userLabel="Container View">
-                    <rect key="frame" x="10" y="10" width="355" height="240"/>
+                    <rect key="frame" x="10" y="15" width="355" height="240"/>
                     <subviews>
                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-Ne-fW6">
                             <rect key="frame" x="0.0" y="90" width="355" height="150"/>
@@ -115,8 +115,8 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ytK-ms-xed" secondAttribute="trailing" constant="10" id="EXZ-4q-Udx"/>
                 <constraint firstItem="ytK-ms-xed" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Nds-8g-wLQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ytK-ms-xed" secondAttribute="bottom" constant="10" id="ddR-SZ-4LI"/>
-                <constraint firstItem="ytK-ms-xed" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="lRT-I0-bLp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ytK-ms-xed" secondAttribute="bottom" constant="15" id="ddR-SZ-4LI"/>
+                <constraint firstItem="ytK-ms-xed" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="lRT-I0-bLp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
