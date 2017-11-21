@@ -17,6 +17,7 @@ class FeedController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let context = CoreDataStack.context
     var runs: [Run] = []
+    var passedRun: Run!
     
     override func viewDidLoad() {
         UIApplication.shared.statusBarStyle = .lightContent
@@ -26,20 +27,32 @@ class FeedController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.register(UINib(nibName: "RunCell", bundle: nil), forCellReuseIdentifier: "runCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.allowsSelection = false
-        navBarSetup()
+        tabBarController?.setTabBarVisible(visible: true, duration: 0.25, animated: true)
 
+//        for 3d touch
+//        if traitCollection.forceTouchCapability == .available {
+//            registerForPreviewing(with: self, sourceView: view)
+//        } else {
+//            print("3D Touch Not Available")
+//        }
+       
     }
-    func navBarSetup(){
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
+
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getData()
         tableView.reloadData()
         UIApplication.shared.statusBarStyle = .lightContent
+        tabBarController?.setTabBarVisible(visible: true, duration: 0.25, animated: true)
     }
     
+    func reload() {
+        getData()
+        tableView.reloadData()
+        UIApplication.shared.statusBarStyle = .lightContent
+        tabBarController?.setTabBarVisible(visible: true, duration: 0.25, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return runs.count
@@ -57,12 +70,11 @@ class FeedController: UIViewController, UITableViewDataSource, UITableViewDelega
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         
+        cell.selectionStyle = .none
         cell.lblDate.text = formattedDate
         cell.lblPace.text = formattedPace
         cell.lblTime.text = formattedTime
         cell.lblDistance.text = formattedDistance
-        cell.btnDelete.addTarget(self, action: #selector(FeedController.actionDelete(_:)), for: .touchUpInside)
-        cell.btnDelete.tag = indexPath.row
         
         guard
             let locations = run.locations,
@@ -84,36 +96,36 @@ class FeedController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    @objc func actionDelete(_ sender: UIButton) {
-        
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
-        
-        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-            //Just dismiss the action sheet
-        }
-        actionSheetController.addAction(cancelAction)
-        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: .destructive) { action -> Void in
-            
-            let run = self.runs[sender.tag]
-            self.context.delete(run)
-            CoreDataStack.saveContext()
-            
-            do {
-                self.runs = try self.context.fetch(Run.fetchRequest())
-            }
-            catch {
-                print("Fetching Failed")
-            }
-            
-            self.tableView.reloadData()
-        }
-        actionSheetController.addAction(deleteAction)
-        
-        self.present(actionSheetController, animated: true, completion: nil)
-        
-    }
+//    @objc func actionDelete(_ sender: UIButton) {
+//
+//        let generator = UIImpactFeedbackGenerator(style: .heavy)
+//        generator.impactOccurred()
+//
+//        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+//            //Just dismiss the action sheet
+//        }
+//        actionSheetController.addAction(cancelAction)
+//        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: .destructive) { action -> Void in
+//
+//            let run = self.runs[sender.tag]
+//            self.context.delete(run)
+//            CoreDataStack.saveContext()
+//
+//            do {
+//                self.runs = try self.context.fetch(Run.fetchRequest())
+//            }
+//            catch {
+//                print("Fetching Failed")
+//            }
+//
+//            self.tableView.reloadData()
+//        }
+//        actionSheetController.addAction(deleteAction)
+//
+//        self.present(actionSheetController, animated: true, completion: nil)
+//
+//    }
     
     func getData() {
         do {
@@ -125,8 +137,22 @@ class FeedController: UIViewController, UITableViewDataSource, UITableViewDelega
         runs.reverse()
     }
     
+    // method to run when table view cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        passedRun = self.runs[indexPath.row]
+        performSegue(withIdentifier:"FeedDetailSegue", sender: self)
+        
+    }
     
-
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if (segue.identifier == "FeedDetailSegue") {
+            if let destinationVC = segue.destination as? FeedDetailController {
+                destinationVC.run = passedRun
+                destinationVC.feed = self
+            }
+        }
+    }
+   
     private func mapRegion(run: Run) -> MKCoordinateRegion? {
         guard
             let locations = run.locations,
@@ -241,6 +267,31 @@ extension FeedController: MKMapViewDelegate {
         renderer.lineWidth = 3
         return renderer
     }
-    
-   
 }
+
+//extension FeedController: UIViewControllerPreviewingDelegate {
+//
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//
+//        guard let indexPath = tableView.indexPathForRow(at: location),
+//            let cell = tableView.cellForRow(at: indexPath) else {
+//                return nil }
+//
+//        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: "FeedDetailController") as? FeedDetailController else { return nil }
+//
+//
+//        detailViewController.preferredContentSize = CGSize(width: 0.0, height: 600)
+//
+//        previewingContext.sourceRect = cell.frame
+//
+//        return detailViewController
+//    }
+//
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//
+//        show(viewControllerToCommit, sender: self)
+//    }
+//
+//
+//}
+

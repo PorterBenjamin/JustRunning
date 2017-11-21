@@ -173,7 +173,6 @@ class HomeController: UIViewController {
             
         case .restricted, .denied:
             
-        
             let actionSheetController: UIAlertController = UIAlertController(title: "Location Services", message: "You have not allowed access to your location, Just Running needs your location to track runs.", preferredStyle: .alert)
             let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
                 //Just dismiss the action sheet
@@ -280,17 +279,32 @@ class HomeController: UIViewController {
     }
     
     @IBAction func btnFinishAction(_ sender: Any) {
-        saveRun()
+        if locationList.count == 0 {
+            let alert = UIAlertController(title: "🏃YOU GOTTA MOVE!",
+                                          message: "Sorry, you have not moved so this 'run' is not going to be saved. Next time try to move a bit more!",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
+            
+            resetView()
+            
+        }else {
+            saveRun()
+            resetView()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.tabBarController?.selectedIndex = 0
+            }
+        }
+    }
+    
+    func resetView() {
         tabBarController?.setTabBarVisible(visible: true, duration: 0.25, animated: true)
         btnFinish.isHidden = true
         btnStop.isHidden = true
         btnResume.isHidden = true
         btnGo.isHidden = false
-        statView.isHidden = true
-        StatViewHeight.constant = 0
-        
-        tabBarController?.selectedIndex = 0
-        
+        deAnimateStatView()
         
     }
     
@@ -301,6 +315,14 @@ class HomeController: UIViewController {
         }
     }
     
+    func deAnimateStatView() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.btnView.layer.shadowOpacity = 0.2
+            self.StatViewHeight.constant = 0
+            self.statView.isHidden = true
+            self.view.layoutIfNeeded()
+        })
+    }
     func animateStatView() {
         UIView.animate(withDuration: 0.25, animations: {
             self.statView.isHidden = false
@@ -328,6 +350,7 @@ class HomeController: UIViewController {
     private func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 8
         locationManager.startUpdatingLocation()
     }
@@ -390,7 +413,7 @@ extension HomeController: MKMapViewDelegate {
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = UIColor.JustRunning.purple
-        renderer.lineWidth = 8
+        renderer.lineWidth = 6
         return renderer
     }
 }

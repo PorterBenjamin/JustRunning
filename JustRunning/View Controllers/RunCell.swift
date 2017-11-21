@@ -20,7 +20,7 @@ class RunCell: UITableViewCell {
     @IBOutlet weak var lblPace: UILabel!
     @IBOutlet weak var lblDistance: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var btnDelete: UIButton!
+    
     
     private static let kInnerMargin: CGFloat = 10.0
     private let motionManager = CMMotionManager()
@@ -28,9 +28,8 @@ class RunCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
-//        mapView.delegate = self
         
     }
     
