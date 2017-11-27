@@ -28,6 +28,8 @@ class FeedDetailController: UIViewController {
         
         super.viewDidLoad()
         
+        btnDelete.layer.cornerRadius = 10
+        
         let distance = Measurement(value: run.distance, unit: UnitLength.meters)
         let seconds = Int(run.duration)
         let formattedDate = FormatDisplay.date(run.timestamp)
@@ -68,6 +70,7 @@ class FeedDetailController: UIViewController {
         mapView.addOverlays(polyLine(run: run))
         
     }
+
     
     @IBAction func ActionDelete(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .heavy)

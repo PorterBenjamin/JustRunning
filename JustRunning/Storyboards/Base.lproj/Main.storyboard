@@ -395,7 +395,7 @@
             </objects>
             <point key="canvasLocation" x="2177" y="1594"/>
         </scene>
-        <!--Feed-->
+        <!--Activity-->
         <scene sceneID="k94-Lg-2lt">
             <objects>
                 <viewController id="LSW-lA-uDj" customClass="FeedController" customModule="Just_Running" customModuleProvider="target" sceneMemberID="viewController">
@@ -418,9 +418,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LpU-fY-74c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="History" id="UQf-jH-yrI"/>
-                    <navigationItem key="navigationItem" title="Feed" leftItemsSupplementBackButton="YES" id="cAS-II-Wpw">
-                        <barButtonItem key="backBarButtonItem" title="Feed" id="tvZ-Od-fOz"/>
+                    <tabBarItem key="tabBarItem" title="Activity" image="History" id="UQf-jH-yrI"/>
+                    <navigationItem key="navigationItem" title="Activity" leftItemsSupplementBackButton="YES" id="cAS-II-Wpw">
+                        <barButtonItem key="backBarButtonItem" title="Activity" id="tvZ-Od-fOz"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="bK4-zE-bzo" id="KDy-AH-cMd"/>
@@ -555,7 +555,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4L-WI-sVU" userLabel="MapContainer">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0X6-hy-RNK">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X6-hy-RNK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                     </mapView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezL-d8-RQM">
@@ -581,9 +581,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6k-WB-FHh">
-                                        <rect key="frame" x="8" y="52" width="55" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="DELETE"/>
+                                        <rect key="frame" x="8" y="52" width="60" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="2Vd-U6-8ha"/>
+                                            <constraint firstAttribute="height" constant="44" id="wRx-11-7zT"/>
+                                        </constraints>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="ActionDelete:" destination="3t0-oi-XRV" eventType="touchUpInside" id="TaJ-PH-hjr"/>
                                         </connections>
@@ -647,11 +653,11 @@
             </objects>
             <point key="canvasLocation" x="1392.8" y="2307.6354679802957"/>
         </scene>
-        <!--Feed-->
+        <!--Activity-->
         <scene sceneID="AhA-Uw-aAg">
             <objects>
                 <navigationController id="z7y-PH-xMQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="History" id="cYG-Ow-jxL"/>
+                    <tabBarItem key="tabBarItem" title="Activity" image="History" id="cYG-Ow-jxL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="wVA-xE-ubW">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
